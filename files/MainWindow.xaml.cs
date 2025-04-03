@@ -27,6 +27,7 @@ namespace files
             InitializeComponent();
             file = new FileManager("data.txt");
             Start();
+            otherStart();
         }
         void Start()
         {   
@@ -86,6 +87,31 @@ namespace files
                 return false;
             }
             return true;
+        }
+
+        void otherStart()
+        {
+            List<Epitoanyagok> list = new List<Epitoanyagok>();
+
+            list.Add(new Fa { faanyag = "tölgy", hardness = 0.1f, weight = 30.25, name = "tölgyfa", price = 100 });
+            list.Add(new Vas { femtipus = "rozsdamentes acél", density = 5f, weight = 1500.25, name = "acél", price = 1500 });
+            list.Add(new Tegla { type = "tegla", color = "piros", weight = 50.25, name = "piros tégla", price = 3800 });
+            foreach (Epitoanyagok item in list)
+            {
+                if (item is Fa)
+                {
+                    MessageBox.Show((item as Fa).faanyag);
+                }
+                else if (item is Vas)
+                {
+                    MessageBox.Show((item as Vas).femtipus);
+                }
+                else if (item is Tegla)
+                {
+                    MessageBox.Show((item as Tegla).type);
+                }
+                item.price += 50;
+            }
         }
     }
 }
